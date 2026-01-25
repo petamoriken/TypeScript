@@ -1098,7 +1098,7 @@ export namespace Completion {
         name,
         kind: "function",
         kindModifiers: "deprecated,declare",
-        sortText: "z15" as SortText,
+        sortText: SortText.Deprecated(SortText.GlobalsOrKeywords),
     });
     const varEntry = (name: string): ExpectedCompletionEntryObject => ({
         name,
@@ -1127,7 +1127,7 @@ export namespace Completion {
         name,
         kind: "method",
         kindModifiers: "deprecated,declare",
-        sortText: "z11" as SortText,
+        sortText: SortText.Deprecated(SortText.LocationPriority),
     });
     const propertyEntry = (name: string): ExpectedCompletionEntryObject => ({
         name,
@@ -1145,13 +1145,19 @@ export namespace Completion {
         name,
         kind: "interface",
         kindModifiers: "deprecated,declare",
-        sortText: "z15" as SortText,
+        sortText: SortText.Deprecated(SortText.GlobalsOrKeywords),
     });
     const typeEntry = (name: string): ExpectedCompletionEntryObject => ({
         name,
         kind: "type",
         kindModifiers: "declare",
         sortText: SortText.GlobalsOrKeywords,
+    });
+    const deprecatedTypeEntry = (name: string): ExpectedCompletionEntryObject => ({
+        name,
+        kind: "type",
+        kindModifiers: "deprecated,declare",
+        sortText: SortText.Deprecated(SortText.GlobalsOrKeywords),
     });
 
     const res: ExpectedCompletionEntryObject[] = [];
@@ -1289,7 +1295,8 @@ export namespace Completion {
         typeEntry("Record"),
         typeEntry("Exclude"),
         typeEntry("Extract"),
-        typeEntry("Omit"),
+        deprecatedTypeEntry("Omit"),
+        typeEntry("Except"),
         typeEntry("NonNullable"),
         typeEntry("Parameters"),
         typeEntry("ConstructorParameters"),
