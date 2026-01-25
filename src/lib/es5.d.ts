@@ -1607,9 +1607,18 @@ type Exclude<T, U> = T extends U ? never : T;
 type Extract<T, U> = T extends U ? T : never;
 
 /**
+ * @deprecated Use `Except` which is a homomorphic mapped type, instead
+ *
  * Construct a type with the properties of T except for those in type K.
  */
 type Omit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>;
+
+/**
+ * Construct a type with the properties of T except for those in type K.
+ */
+type Except<T, K extends keyof T> = {
+    [P in keyof T as P extends K ? never : P]: T[P];
+};
 
 /**
  * Exclude null and undefined from T
