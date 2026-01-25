@@ -690,6 +690,12 @@ Info seq  [hh:mm:ss:mss] response:
             "sortText": "15"
           },
           {
+            "name": "Except",
+            "kind": "type",
+            "kindModifiers": "declare",
+            "sortText": "15"
+          },
+          {
             "name": "Exclude",
             "kind": "type",
             "kindModifiers": "declare",
@@ -920,12 +926,6 @@ Info seq  [hh:mm:ss:mss] response:
           {
             "name": "ObjectConstructor",
             "kind": "interface",
-            "kindModifiers": "declare",
-            "sortText": "15"
-          },
-          {
-            "name": "Omit",
-            "kind": "type",
             "kindModifiers": "declare",
             "sortText": "15"
           },
@@ -1330,6 +1330,12 @@ Info seq  [hh:mm:ss:mss] response:
           {
             "name": "ImportAssertions",
             "kind": "interface",
+            "kindModifiers": "deprecated,declare",
+            "sortText": "z15"
+          },
+          {
+            "name": "Omit",
+            "kind": "type",
             "kindModifiers": "deprecated,declare",
             "sortText": "z15"
           }

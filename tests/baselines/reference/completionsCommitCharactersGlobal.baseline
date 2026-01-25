@@ -2638,6 +2638,7 @@
 // | interface EvalError
 // | var EvalError: EvalErrorConstructor
 // | interface EvalErrorConstructor
+// | type Except<T, K extends keyof T> = { [P in keyof T as P extends K ? never : P]: T[P]; }
 // | type Exclude<T, U> = T extends U ? never : T
 // | type Extract<T, U> = T extends U ? T : never
 // | false
@@ -2687,7 +2688,6 @@
 // | interface Object
 // | var Object: ObjectConstructor
 // | interface ObjectConstructor
-// | type Omit<T, K extends keyof any> = { [P in Exclude<keyof T, K>]: T[P]; }
 // | type OmitThisParameter<T> = unknown extends ThisParameterType<T> ? T : T extends (...args: infer A) => infer R ? (...args: A) => R : T
 // | type ParameterDecorator = (target: Object, propertyKey: string | symbol | undefined, parameterIndex: number) => void
 // | type Parameters<T extends (...args: any) => any> = T extends (...args: infer P) => any ? P : never
@@ -2759,6 +2759,7 @@
 // | type WeakKey = object
 // | interface WeakKeyTypes
 // | interface ImportAssertions
+// | type Omit<T, K extends keyof any> = { [P in Exclude<keyof T, K>]: T[P]; }
 // | ----------------------------------------------------------------------
 // }
 // function F(pred: (x)
@@ -2818,6 +2819,7 @@
 // | interface EvalError
 // | var EvalError: EvalErrorConstructor
 // | interface EvalErrorConstructor
+// | type Except<T, K extends keyof T> = { [P in keyof T as P extends K ? never : P]: T[P]; }
 // | type Exclude<T, U> = T extends U ? never : T
 // | type Extract<T, U> = T extends U ? T : never
 // | false
@@ -2867,7 +2869,6 @@
 // | interface Object
 // | var Object: ObjectConstructor
 // | interface ObjectConstructor
-// | type Omit<T, K extends keyof any> = { [P in Exclude<keyof T, K>]: T[P]; }
 // | type OmitThisParameter<T> = unknown extends ThisParameterType<T> ? T : T extends (...args: infer A) => infer R ? (...args: A) => R : T
 // | type ParameterDecorator = (target: Object, propertyKey: string | symbol | undefined, parameterIndex: number) => void
 // | type Parameters<T extends (...args: any) => any> = T extends (...args: infer P) => any ? P : never
@@ -2939,6 +2940,7 @@
 // | type WeakKey = object
 // | interface WeakKeyTypes
 // | interface ImportAssertions
+// | type Omit<T, K extends keyof any> = { [P in Exclude<keyof T, K>]: T[P]; }
 // | ----------------------------------------------------------------------
 
 [
@@ -77643,6 +77645,236 @@
           "documentation": []
         },
         {
+          "name": "Except",
+          "kind": "type",
+          "kindModifiers": "declare",
+          "sortText": "15",
+          "displayParts": [
+            {
+              "text": "type",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "Except",
+              "kind": "aliasName"
+            },
+            {
+              "text": "<",
+              "kind": "punctuation"
+            },
+            {
+              "text": "T",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": ",",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "K",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "extends",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "keyof",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "T",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": ">",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "=",
+              "kind": "operator"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "{",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "[",
+              "kind": "punctuation"
+            },
+            {
+              "text": "P",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "in",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "keyof",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "T",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "as",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "P",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "extends",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "K",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "?",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "never",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": ":",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "P",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": "]",
+              "kind": "punctuation"
+            },
+            {
+              "text": ":",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "T",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": "[",
+              "kind": "punctuation"
+            },
+            {
+              "text": "P",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": "]",
+              "kind": "punctuation"
+            },
+            {
+              "text": ";",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "}",
+              "kind": "punctuation"
+            }
+          ],
+          "documentation": [
+            {
+              "text": "Construct a type with the properties of T except for those in type K.",
+              "kind": "text"
+            }
+          ]
+        },
+        {
           "name": "Exclude",
           "kind": "type",
           "kindModifiers": "declare",
@@ -79668,196 +79900,6 @@
             }
           ],
           "documentation": []
-        },
-        {
-          "name": "Omit",
-          "kind": "type",
-          "kindModifiers": "declare",
-          "sortText": "15",
-          "displayParts": [
-            {
-              "text": "type",
-              "kind": "keyword"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "Omit",
-              "kind": "aliasName"
-            },
-            {
-              "text": "<",
-              "kind": "punctuation"
-            },
-            {
-              "text": "T",
-              "kind": "typeParameterName"
-            },
-            {
-              "text": ",",
-              "kind": "punctuation"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "K",
-              "kind": "typeParameterName"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "extends",
-              "kind": "keyword"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "keyof",
-              "kind": "keyword"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "any",
-              "kind": "keyword"
-            },
-            {
-              "text": ">",
-              "kind": "punctuation"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "=",
-              "kind": "operator"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "{",
-              "kind": "punctuation"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "[",
-              "kind": "punctuation"
-            },
-            {
-              "text": "P",
-              "kind": "typeParameterName"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "in",
-              "kind": "keyword"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "Exclude",
-              "kind": "aliasName"
-            },
-            {
-              "text": "<",
-              "kind": "punctuation"
-            },
-            {
-              "text": "keyof",
-              "kind": "keyword"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "T",
-              "kind": "typeParameterName"
-            },
-            {
-              "text": ",",
-              "kind": "punctuation"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "K",
-              "kind": "typeParameterName"
-            },
-            {
-              "text": ">",
-              "kind": "punctuation"
-            },
-            {
-              "text": "]",
-              "kind": "punctuation"
-            },
-            {
-              "text": ":",
-              "kind": "punctuation"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "T",
-              "kind": "typeParameterName"
-            },
-            {
-              "text": "[",
-              "kind": "punctuation"
-            },
-            {
-              "text": "P",
-              "kind": "typeParameterName"
-            },
-            {
-              "text": "]",
-              "kind": "punctuation"
-            },
-            {
-              "text": ";",
-              "kind": "punctuation"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "}",
-              "kind": "punctuation"
-            }
-          ],
-          "documentation": [
-            {
-              "text": "Construct a type with the properties of T except for those in type K.",
-              "kind": "text"
-            }
-          ]
         },
         {
           "name": "OmitThisParameter",
@@ -83632,6 +83674,202 @@
           "tags": [
             {
               "name": "deprecated"
+            }
+          ]
+        },
+        {
+          "name": "Omit",
+          "kind": "type",
+          "kindModifiers": "deprecated,declare",
+          "sortText": "z15",
+          "displayParts": [
+            {
+              "text": "type",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "Omit",
+              "kind": "aliasName"
+            },
+            {
+              "text": "<",
+              "kind": "punctuation"
+            },
+            {
+              "text": "T",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": ",",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "K",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "extends",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "keyof",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "any",
+              "kind": "keyword"
+            },
+            {
+              "text": ">",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "=",
+              "kind": "operator"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "{",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "[",
+              "kind": "punctuation"
+            },
+            {
+              "text": "P",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "in",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "Exclude",
+              "kind": "aliasName"
+            },
+            {
+              "text": "<",
+              "kind": "punctuation"
+            },
+            {
+              "text": "keyof",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "T",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": ",",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "K",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": ">",
+              "kind": "punctuation"
+            },
+            {
+              "text": "]",
+              "kind": "punctuation"
+            },
+            {
+              "text": ":",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "T",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": "[",
+              "kind": "punctuation"
+            },
+            {
+              "text": "P",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": "]",
+              "kind": "punctuation"
+            },
+            {
+              "text": ";",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "}",
+              "kind": "punctuation"
+            }
+          ],
+          "documentation": [],
+          "tags": [
+            {
+              "name": "deprecated",
+              "text": [
+                {
+                  "text": "Use `Except` which is a homomorphic mapped type, instead\n\nConstruct a type with the properties of T except for those in type K.",
+                  "kind": "text"
+                }
+              ]
             }
           ]
         }
@@ -87114,6 +87352,236 @@
           "documentation": []
         },
         {
+          "name": "Except",
+          "kind": "type",
+          "kindModifiers": "declare",
+          "sortText": "15",
+          "displayParts": [
+            {
+              "text": "type",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "Except",
+              "kind": "aliasName"
+            },
+            {
+              "text": "<",
+              "kind": "punctuation"
+            },
+            {
+              "text": "T",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": ",",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "K",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "extends",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "keyof",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "T",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": ">",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "=",
+              "kind": "operator"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "{",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "[",
+              "kind": "punctuation"
+            },
+            {
+              "text": "P",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "in",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "keyof",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "T",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "as",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "P",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "extends",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "K",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "?",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "never",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": ":",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "P",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": "]",
+              "kind": "punctuation"
+            },
+            {
+              "text": ":",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "T",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": "[",
+              "kind": "punctuation"
+            },
+            {
+              "text": "P",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": "]",
+              "kind": "punctuation"
+            },
+            {
+              "text": ";",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "}",
+              "kind": "punctuation"
+            }
+          ],
+          "documentation": [
+            {
+              "text": "Construct a type with the properties of T except for those in type K.",
+              "kind": "text"
+            }
+          ]
+        },
+        {
           "name": "Exclude",
           "kind": "type",
           "kindModifiers": "declare",
@@ -89139,196 +89607,6 @@
             }
           ],
           "documentation": []
-        },
-        {
-          "name": "Omit",
-          "kind": "type",
-          "kindModifiers": "declare",
-          "sortText": "15",
-          "displayParts": [
-            {
-              "text": "type",
-              "kind": "keyword"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "Omit",
-              "kind": "aliasName"
-            },
-            {
-              "text": "<",
-              "kind": "punctuation"
-            },
-            {
-              "text": "T",
-              "kind": "typeParameterName"
-            },
-            {
-              "text": ",",
-              "kind": "punctuation"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "K",
-              "kind": "typeParameterName"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "extends",
-              "kind": "keyword"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "keyof",
-              "kind": "keyword"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "any",
-              "kind": "keyword"
-            },
-            {
-              "text": ">",
-              "kind": "punctuation"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "=",
-              "kind": "operator"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "{",
-              "kind": "punctuation"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "[",
-              "kind": "punctuation"
-            },
-            {
-              "text": "P",
-              "kind": "typeParameterName"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "in",
-              "kind": "keyword"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "Exclude",
-              "kind": "aliasName"
-            },
-            {
-              "text": "<",
-              "kind": "punctuation"
-            },
-            {
-              "text": "keyof",
-              "kind": "keyword"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "T",
-              "kind": "typeParameterName"
-            },
-            {
-              "text": ",",
-              "kind": "punctuation"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "K",
-              "kind": "typeParameterName"
-            },
-            {
-              "text": ">",
-              "kind": "punctuation"
-            },
-            {
-              "text": "]",
-              "kind": "punctuation"
-            },
-            {
-              "text": ":",
-              "kind": "punctuation"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "T",
-              "kind": "typeParameterName"
-            },
-            {
-              "text": "[",
-              "kind": "punctuation"
-            },
-            {
-              "text": "P",
-              "kind": "typeParameterName"
-            },
-            {
-              "text": "]",
-              "kind": "punctuation"
-            },
-            {
-              "text": ";",
-              "kind": "punctuation"
-            },
-            {
-              "text": " ",
-              "kind": "space"
-            },
-            {
-              "text": "}",
-              "kind": "punctuation"
-            }
-          ],
-          "documentation": [
-            {
-              "text": "Construct a type with the properties of T except for those in type K.",
-              "kind": "text"
-            }
-          ]
         },
         {
           "name": "OmitThisParameter",
@@ -93103,6 +93381,202 @@
           "tags": [
             {
               "name": "deprecated"
+            }
+          ]
+        },
+        {
+          "name": "Omit",
+          "kind": "type",
+          "kindModifiers": "deprecated,declare",
+          "sortText": "z15",
+          "displayParts": [
+            {
+              "text": "type",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "Omit",
+              "kind": "aliasName"
+            },
+            {
+              "text": "<",
+              "kind": "punctuation"
+            },
+            {
+              "text": "T",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": ",",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "K",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "extends",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "keyof",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "any",
+              "kind": "keyword"
+            },
+            {
+              "text": ">",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "=",
+              "kind": "operator"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "{",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "[",
+              "kind": "punctuation"
+            },
+            {
+              "text": "P",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "in",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "Exclude",
+              "kind": "aliasName"
+            },
+            {
+              "text": "<",
+              "kind": "punctuation"
+            },
+            {
+              "text": "keyof",
+              "kind": "keyword"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "T",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": ",",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "K",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": ">",
+              "kind": "punctuation"
+            },
+            {
+              "text": "]",
+              "kind": "punctuation"
+            },
+            {
+              "text": ":",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "T",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": "[",
+              "kind": "punctuation"
+            },
+            {
+              "text": "P",
+              "kind": "typeParameterName"
+            },
+            {
+              "text": "]",
+              "kind": "punctuation"
+            },
+            {
+              "text": ";",
+              "kind": "punctuation"
+            },
+            {
+              "text": " ",
+              "kind": "space"
+            },
+            {
+              "text": "}",
+              "kind": "punctuation"
+            }
+          ],
+          "documentation": [],
+          "tags": [
+            {
+              "name": "deprecated",
+              "text": [
+                {
+                  "text": "Use `Except` which is a homomorphic mapped type, instead\n\nConstruct a type with the properties of T except for those in type K.",
+                  "kind": "text"
+                }
+              ]
             }
           ]
         }
